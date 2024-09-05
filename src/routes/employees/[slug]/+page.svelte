@@ -9,7 +9,7 @@
 
     const { origin } =  $page.url
 
-    console.log('this is the last page', origin);
+
     
 </script>
 

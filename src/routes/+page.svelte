@@ -2,7 +2,7 @@
     export let data; 
     let { companyData } = data.companyData; 
 
-    console.log(companyData);
+
 
     const companyCounts = {};
     
@@ -14,8 +14,6 @@
             companyCounts[companyName] = 1;
         }
     });
-
-    console.log(companyCounts);
 </script>
 
 <div class="border w-full py-5 px-5 fixed bg-white">
