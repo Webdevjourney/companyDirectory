@@ -1,6 +1,12 @@
 /** @type {import('./$types').PageServerLoad} */
 
 
+import { getEmployees } from '$lib/employees';
+
 export async function load() {
-    return {};
+
+    const companyData = await getEmployees();
+    return {
+        companyData
+    };
 };

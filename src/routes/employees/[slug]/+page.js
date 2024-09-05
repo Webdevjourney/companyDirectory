@@ -1,17 +1,30 @@
 /** @type {import('./$types').PageLoad} */
 import { error } from '@sveltejs/kit';
-
-export function load({ params, }) {
-
+import { getEmployees } from '$lib/employees';
 
 
 
-    if (params.slug === 'hello-world') {
+
+
+export async function load({ params }) {
+
+
+
+    const { companyData } = await getEmployees();
+
+
+    const company = companyData.find(company => company.company.name === params.slug);
+
+    if (company) {
         return {
-            title: 'Hello world!',
-            content: 'Welcome to our blog. Lorem ipsum dolor sit amet...'
+            title: company.company.name,
+            name: company.name,
+            phone: company.phone,
+            website: company.website,
+            email: company.email
+
         };
     }
 
-    error(404, 'Not found');
+    throw error(404, 'Not found');
 }

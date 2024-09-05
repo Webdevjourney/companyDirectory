@@ -1,15 +1,14 @@
 /** @type {import('./$types').LayoutServerLoad} */
+
+
+import { getEmployees } from '$lib/employees'
+
 export async function load() {
 
-    const res = await fetch('https://jsonplaceholder.typicode.com/users');
-    let companyData = await res.json();
-
-
-    // console.log('userDat isss', userData);
-
-
+    const companyData = await getEmployees();
 
     return {
         companyData
+
     };
 }

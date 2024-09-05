@@ -6,6 +6,6 @@
 </script>
 
 
-<div class="app-container flex flex-col justify-center items-center p-4">
+<div class="app-container flex flex-col  ">
     <slot />
 </div>
